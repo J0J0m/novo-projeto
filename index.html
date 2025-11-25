@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Amor - Presentes</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <header class="store-header">
+        <div class="cart-icon" title="Ver Carrinho" onclick="toggleCart()">
+            💖 <span id="cart-counter" class="counter">0</span>
+        </div>
+        <h1>Meu Amor: CELSO SEDUTOR</h1>
+        <p>Encontre o presente perfeito para celebrar o amor.</p>
+    </header>
+
+    <div class="product-grid">
+
+        <div class="product-card item-rosa" data-product-id="1" onclick="showProductDetails(1)">
+            <div class="image-container">
+                <img src="imagens/WhatsApp Image 2025-10-23 at 21.22.57.jpeg" alt="Presente 1" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Camisa Amor</h3>
+                <p class="product-price">R$ 250,00</p>
+                <button class="buy-button" 
+                        onclick="event.stopPropagation(); addToCart(this)" 
+                        data-name="Camisa Amor" 
+                        data-price="250.00">COMPRAR</button>
+            </div>
+        </div>
+
+        <div class="product-card item-azul" data-product-id="2" onclick="showProductDetails(2)">
+            <div class="image-container">
+                <img src="imagens/WhatsApp Image 2025-10-23 at 21.22.58.jpeg" alt="Presente 2" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Moletom Homem Gostoso</h3>
+                <p class="product-price">R$ 199,90</p>
+                <button class="buy-button" 
+                        onclick="event.stopPropagation(); addToCart(this)" 
+                        data-name="Moletom Homem Gostoso" 
+                        data-price="199.90">COMPRAR</button>
+            </div>
+        </div>
+
+        <div class="product-card item-rosa" data-product-id="3" onclick="showProductDetails(3)">
+            <div class="image-container">
+                <img src="imagens/WhatsApp Image 2025-10-23 at 21.22.57 (2).jpeg" alt="Presente 3" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Garrafa Sedutora de Homem Gostoso</h3>
+                <p class="product-price">R$ 310,50</p>
+                <button class="buy-button" 
+                        onclick="event.stopPropagation(); addToCart(this)" 
+                        data-name="Garrafa Sedutora de Homem Gostoso" 
+                        data-price="310.50">COMPRAR</button>
+            </div>
+        </div>
+
+        <div class="product-card item-roxo" data-product-id="4" onclick="showProductDetails(4)">
+            <div class="image-container">
+                <img src="imagens/WhatsApp Image 2025-10-23 at 21.22.58 (1).jpeg" alt="Presente 4" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Bolsa de Homem Cajuzinho</h3>
+                <p class="product-price">R$ 145,00</p>
+                <button class="buy-button" 
+                        onclick="event.stopPropagation(); addToCart(this)" 
+                        data-name="Bolsa de Homem Cajuzinho" 
+                        data-price="145.00">COMPRAR</button>
+            </div>
+        </div>
+
+        <div class="product-card item-azul" data-product-id="5" onclick="showProductDetails(5)">
+            <div class="image-container">
+                <img src="imagens/WhatsApp Image 2025-10-23 at 20.54.13.jpeg" alt="Presente 5" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Caneca do Meu Amor</h3>
+                <p class="product-price">R$ 275,00</p>
+                <button class="buy-button" 
+                        onclick="event.stopPropagation(); addToCart(this)" 
+                        data-name="Caneca do Meu Amor" 
+                        data-price="275.00">COMPRAR</button>
+            </div>
+        </div>
+
+        <div class="product-card item-roxo" data-product-id="6" onclick="showProductDetails(6)">
+            <div class="image-container">
+                <img src="imagens/WhatsApp Image 2025-10-23 at 21.22.57 (1).jpeg" alt="Presente 6" class="product-image">
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Capinha do Meu Lindo</h3> 
+                <p class="product-price">R$ 200,00</p>
+                <button class="buy-button" 
+                        onclick="event.stopPropagation(); addToCart(this)" 
+                        data-name="Capinha do Meu Lindo" 
+                        data-price="200.00">COMPRAR</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Modal de Detalhes do Produto -->
+    <div id="product-modal" class="product-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductDetails()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <img id="modal-product-image" src="" alt="Produto" class="modal-product-image">
+                </div>
+                <div class="modal-info-section">
+                    <h2 id="modal-product-name" class="modal-product-name"></h2>
+                    <p id="modal-product-price" class="modal-product-price"></p>
+                    <div class="modal-description">
+                        <h3>Descrição do Produto</h3>
+                        <p id="modal-product-description"></p>
+                    </div>
+                    <div class="modal-details">
+                        <h3>Detalhes</h3>
+                        <ul id="modal-product-details"></ul>
+                    </div>
+                    <button id="modal-buy-button" class="modal-buy-button" onclick="addToCartFromModal()">
+                        ADICIONAR AO CARRINHO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="cart-panel" class="cart-panel">
+        <h2>💖 Seu Carrinho 💖</h2>
+        <button class="close-btn" onclick="toggleCart()">X</button>
+        <ul id="cart-list" class="cart-list">
+            <li class="empty-message">Nenhum presente especial aqui...</li>
+        </ul>
+        <div class="cart-footer">
+            <p>Total: <span id="cart-total">R$ 0,00</span></p>
+            <button class="checkout-btn">Finalizar Pedido</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
